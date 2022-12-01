@@ -14,7 +14,7 @@ const data = {
     },
     {
       name: 'Nike Slim shirt',
-      slug: 'nike-slim-shirt',
+      slug: 'nike-slim-shirt1',
       category: 'Shirts',
       image: '/images/p2.jpg',
       price: 120,
@@ -26,7 +26,7 @@ const data = {
     },
     {
       name: 'Nike Slim shirt',
-      slug: 'nike-slim-shirt',
+      slug: 'nike-slim-shirt2',
       category: 'Shirts',
       image: '/images/p3.jpg',
       price: 120,
@@ -38,7 +38,7 @@ const data = {
     },
     {
       name: 'Nike Slim shirt',
-      slug: 'nike-slim-shirt',
+      slug: 'nike-slim-shirt3',
       category: 'Shirts',
       image: '/images/p4.jpg',
       price: 120,
@@ -50,7 +50,7 @@ const data = {
     },
     {
       name: 'Nike Slim shirt',
-      slug: 'nike-slim-shirt',
+      slug: 'nike-slim-shirt4',
       category: 'Shirts',
       image: 'images/p5.jpg',
       price: 150,
@@ -62,7 +62,7 @@ const data = {
     },
     {
       name: 'Nike Slim shirt',
-      slug: 'nike-slim-shirt',
+      slug: 'nike-slim-shirt5',
       category: 'Shirts',
       image: '/images/p6.jpg',
       price: 200,
