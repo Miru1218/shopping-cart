@@ -1,10 +1,11 @@
 import { useEffect, useReducer, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import Product from '../components/Product';
+import LoadingBox from '../components/LoadingBox';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Product from '../components/Product';
 // import data from '../../data';
 
 const reducer = (state, action) => {
@@ -46,7 +47,7 @@ function HomeScreen() {
       <h1>Featured Products</h1>
       <div className="products">
         {loading ? (
-          <div>loading</div>
+          <LoadingBox />
         ) : error ? (
           <div>{error}</div>
         ) : (
