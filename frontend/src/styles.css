@@ -10,7 +10,22 @@ main {
   flex: 1;
 }
 
-nav {
+.btn-primary {
+  background-color: #f0c404;
+  color: #000000;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.rating span {
+  color: #ffc000;
+}
+
+/* nav {
   background-color: #333;
   color: white;
   display: flex;
@@ -72,7 +87,7 @@ nav {
 
 .nav li:hover {
   background-color: #777;
-}
+} */
 
 .products {
   display: flex;
@@ -92,4 +107,8 @@ nav {
 
 .product-info {
   padding: 1rem;
+}
+
+.img-large {
+  max-width: 100%;
 }
