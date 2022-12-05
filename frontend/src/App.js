@@ -41,7 +41,7 @@ function App() {
         <Container className="mt-3">
           <Routes>
             <Route path="/product/:slug" element={<ProductScreen />}></Route>
-            <Route path="/cart" element={<CartScreen />}></Route>
+            <Route path="/cart" element={<CartScreen />} />
             <Route path="/" element={<HomeScreen />}></Route>
             {/* <Route path="/signUp" element={<SignUp />}></Route>
             <Route path="/logIn" element={<LogIn />}></Route> */}
