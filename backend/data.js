@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      _id: 1,
       name: 'Nike Slim shirt',
       slug: '咪嚕',
       category: 'Shirts',
@@ -13,6 +14,7 @@ const data = {
       description: 'high quality shirt',
     },
     {
+      _id: 2,
       name: 'Nike Slim shirt',
       slug: 'nike-slim-shirt1',
       category: 'Shirts',
@@ -25,6 +27,7 @@ const data = {
       description: 'high quality shirt',
     },
     {
+      _id: 3,
       name: 'Nike Slim shirt',
       slug: 'nike-slim-shirt2',
       category: 'Shirts',
@@ -37,6 +40,7 @@ const data = {
       description: 'high quality shirt',
     },
     {
+      _id: 4,
       name: 'Nike Slim shirt',
       slug: 'nike-slim-shirt3',
       category: 'Shirts',
@@ -49,6 +53,7 @@ const data = {
       description: 'high quality shirt',
     },
     {
+      _id: 5,
       name: 'Nike Slim shirt',
       slug: 'nike-slim-shirt4',
       category: 'Shirts',
@@ -61,6 +66,7 @@ const data = {
       description: 'high quality shirt',
     },
     {
+      _id: 6,
       name: 'Nike Slim shirt',
       slug: 'nike-slim-shirt5',
       category: 'Shirts',

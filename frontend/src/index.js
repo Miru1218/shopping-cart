@@ -5,14 +5,17 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { BrowserRouter } from 'react-router-dom';
+import { StoreProvider } from './Store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <HelmetProvider>
-        <App />
-      </HelmetProvider>
+      <StoreProvider>
+        <HelmetProvider>
+          <App />
+        </HelmetProvider>
+      </StoreProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
