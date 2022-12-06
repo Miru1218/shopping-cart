@@ -1,5 +1,3 @@
-// import LogIn from './pages/member/LogIn';
-// import SignUp from './pages/member/SignUp';
 import { Link, Route, Routes } from 'react-router-dom';
 import HomeScreen from './pages/screens/HomeScreen';
 import ProductScreen from './pages/screens/ProductScreen';
@@ -11,6 +9,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { useContext } from 'react';
 import { Store } from './Store';
 import CartScreen from './pages/screens/CartScreen';
+import SignInScreen from './pages/screens/SignInScreen';
 
 function App() {
   const { state } = useContext(Store);
@@ -42,9 +41,8 @@ function App() {
           <Routes>
             <Route path="/product/:slug" element={<ProductScreen />}></Route>
             <Route path="/cart" element={<CartScreen />} />
+            <Route path="/signIn" element={<SignInScreen />} />
             <Route path="/" element={<HomeScreen />}></Route>
-            {/* <Route path="/signUp" element={<SignUp />}></Route>
-            <Route path="/logIn" element={<LogIn />}></Route> */}
           </Routes>
         </Container>
       </main>
