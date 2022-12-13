@@ -15,10 +15,12 @@ export default function SignupScreen() {
   const redirectInUrl = new URLSearchParams(search).get('redirect');
   const redirect = redirectInUrl ? redirectInUrl : '/';
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [account, setAccount] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
@@ -29,10 +31,12 @@ export default function SignupScreen() {
       return;
     }
     try {
-      const { data } = await axios.post('/users/signup', {
-        name,
+      const { data } = await axios.post('/user/signup', {
+        account,
         email,
         password,
+        address,
+        phone,
       });
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
@@ -55,18 +59,9 @@ export default function SignupScreen() {
       </Helmet>
       <h1 className="my-3">Sign Up</h1>
       <Form onSubmit={submitHandler}>
-        <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Name</Form.Label>
-          <Form.Control onChange={(e) => setName(e.target.value)} required />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          />
+        <Form.Group className="mb-3" controlId="account">
+          <Form.Label>Account</Form.Label>
+          <Form.Control onChange={(e) => setAccount(e.target.value)} required />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password">
           <Form.Label>Password</Form.Label>
@@ -83,6 +78,30 @@ export default function SignupScreen() {
               required
             />
           </Form.Group>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="email"
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="address">
+          <Form.Label>Address</Form.Label>
+          <Form.Control
+            type="address"
+            required
+            onChange={(e) => setAddress(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="phone">
+          <Form.Label>Phone</Form.Label>
+          <Form.Control
+            type="phone"
+            required
+            onChange={(e) => setPhone(e.target.value)}
+          />
         </Form.Group>
         <div className="mb-3">
           <Button type="submit">Sign Up</Button>

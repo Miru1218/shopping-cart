@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Product from '../components/Product';
 import LoadingBox from '../components/LoadingBox';
