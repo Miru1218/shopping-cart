@@ -3123,6 +3123,11 @@ cliui@^7.0.2:
     strip-ansi "^6.0.0"
     wrap-ansi "^7.0.0"
 
+clsx@^1.1.1:
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/clsx/-/clsx-1.2.1.tgz"
+  integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
+
 co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.npmjs.org/co/-/co-4.6.0.tgz"
@@ -7654,6 +7659,13 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
+react-toastify@^9.1.1:
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-9.1.1.tgz#9280caea4a13dc1739c350d90660a630807bf10b"
+  integrity sha512-pkFCla1z3ve045qvjEmn2xOJOy4ZciwRXm1oMPULVkELi5aJdHCN/FHnuqXq8IwGDLB7PPk2/J6uP9D8ejuiRw==
+  dependencies:
+    clsx "^1.1.1"
+
 react-transition-group@^4.4.2:
   version "4.4.5"
   resolved "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz"
@@ -8813,7 +8825,7 @@ url-parse@^1.5.3:
 
 use-reducer-logger@^1.0.2:
   version "1.0.2"
-  resolved "https://registry.yarnpkg.com/use-reducer-logger/-/use-reducer-logger-1.0.2.tgz#84b3531ebf269841b9c082fcbf154cb12516922e"
+  resolved "https://registry.npmjs.org/use-reducer-logger/-/use-reducer-logger-1.0.2.tgz"
   integrity sha512-i0SQtRrWqbgQ07V0Ty1Eznh9k37LCTp3eaSIAMLTdd6+mg3teREHMf10lk9cf5OzzT+woP0XS8E1FC4+hxcrJQ==
 
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:

@@ -7,7 +7,6 @@ import MessageBox from '../components/MessageBox';
 import logger from 'use-reducer-logger';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-// import data from '../../data';
 
 const reducer = (state, action) => {
   switch (action.type) {
