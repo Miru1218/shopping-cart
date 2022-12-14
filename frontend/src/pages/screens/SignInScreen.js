@@ -15,7 +15,7 @@ export default function SignInScreen() {
   const redirectInUrl = new URLSearchParams(search).get('redirect');
   const redirect = redirectInUrl ? redirectInUrl : '/';
 
-  const [email, setEmail] = useState('');
+  const [account, setAccount] = useState('');
   const [password, setPassword] = useState('');
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -24,7 +24,7 @@ export default function SignInScreen() {
     e.preventDefault();
     try {
       const { data } = await axios.post('/user/signIn', {
-        email,
+        account,
         password,
       });
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
@@ -48,12 +48,12 @@ export default function SignInScreen() {
       </Helmet>
       <h1 className="my-3">Sign In</h1>
       <Form onSubmit={submitHandler}>
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email</Form.Label>
+        <Form.Group className="mb-3" controlId="account">
+          <Form.Label>Account</Form.Label>
           <Form.Control
-            type="email"
+            type="account"
             required
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setAccount(e.target.value)}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password">
