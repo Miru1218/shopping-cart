@@ -19,7 +19,6 @@ import SignupScreen from './pages/screens/SignupScreen';
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
-
   const signOutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo');
@@ -27,7 +26,7 @@ function App() {
   };
   return (
     <div className="d-flex flex-column site-container">
-      <ToastContainer position="bottom-center" limit={1} />
+      <ToastContainer position="bottom-center" autoClose={1000} limit={1} />
       <header>
         <Navbar bg="dark" variant="dark">
           <Container>
@@ -44,7 +43,7 @@ function App() {
                 )}
               </Link>
               {userInfo ? (
-                <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                <NavDropdown title={userInfo.account} id="basic-nav-dropdown">
                   <LinkContainer to="/profile">
                     <NavDropdown.Item>User Profile</NavDropdown.Item>
                   </LinkContainer>
@@ -73,7 +72,10 @@ function App() {
       <main>
         <Container className="mt-3">
           <Routes>
-            <Route path="/product/products/:slug" element={<ProductScreen />}></Route>
+            <Route
+              path="/product/products/:slug"
+              element={<ProductScreen />}
+            ></Route>
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/signIn" element={<SignInScreen />} />
             <Route path="/signup" element={<SignupScreen />} />

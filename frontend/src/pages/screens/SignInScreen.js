@@ -22,11 +22,20 @@ export default function SignInScreen() {
   const { userInfo } = state;
   const submitHandler = async (e) => {
     e.preventDefault();
+
     try {
       const { data } = await axios.post('/user/signIn', {
         account,
         password,
       });
+
+      // if (data === false) {
+      //   toast.error('帳號或密碼錯誤');
+      //   return;
+      // }
+      // if (data === true) {
+      //   toast.success('登入成功');
+      // }
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
       navigate(redirect || '/');
