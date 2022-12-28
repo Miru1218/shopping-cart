@@ -29,13 +29,13 @@ export default function SignInScreen() {
         password,
       });
 
-      // if (data === false) {
-      //   toast.error('帳號或密碼錯誤');
-      //   return;
-      // }
-      // if (data === true) {
-      //   toast.success('登入成功');
-      // }
+      if (data === false) {
+        toast.error('帳號或密碼錯誤');
+        return;
+      }
+      if (data === true) {
+        toast.success('登入成功');
+      }
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
       navigate(redirect || '/');
