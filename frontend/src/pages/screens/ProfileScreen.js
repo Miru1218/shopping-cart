@@ -35,9 +35,17 @@ export default function ProfileScreen() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      toast.error('Passwords do not match');
+      return;
+    }
+    if(password.replace(/(^\s*)|(\s*$)/g, '').replace(/[\r\n]/g, '') === ''){
+      toast.error('Passwords不能為空字串');
+      return;
+    }
     try {
       const { data } = await axios.put(
-        '/users/profile',
+        '/user/profile',
         {
           account,
           email,
@@ -89,6 +97,7 @@ export default function ProfileScreen() {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
+            required
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
@@ -96,6 +105,7 @@ export default function ProfileScreen() {
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
             type="password"
+            required
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </Form.Group>
