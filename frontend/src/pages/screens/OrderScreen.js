@@ -108,8 +108,9 @@ export default function OrderScreen() {
     if (!userInfo) {
       return navigate('/login');
     }
-    if (!order.id || successPay || (order.id && order.id !== orderId)) {
+    if (!order.id || (order.id && order.id.toString() !== orderId)) {
       fetchOrder();
+      console.log(successPay)
       if (successPay) {
         dispatch({ type: 'PAY_RESET' });
       }
