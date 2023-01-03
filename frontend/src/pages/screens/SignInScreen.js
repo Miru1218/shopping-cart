@@ -29,11 +29,11 @@ export default function SignInScreen() {
         password,
       });
 
-      if (data === false) {
+      if (data.loginPass === false) {
         toast.error('帳號或密碼錯誤');
         return;
       }
-      if (data === true) {
+      if (data.loginPass === true) {
         toast.success('登入成功');
       }
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
