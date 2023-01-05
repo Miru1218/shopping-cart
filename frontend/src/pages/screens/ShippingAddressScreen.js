@@ -37,7 +37,7 @@ export default function ShippingAddressScreen() {
         country,
       },
     });
-    localStorage.setItem(
+    sessionStorage.setItem(
       'shippingAddress',
       JSON.stringify({
         fullName,

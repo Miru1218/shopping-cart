@@ -67,7 +67,7 @@ export default function PlaceOrderScreen() {
       );
       ctxDispatch({ type: 'CART_CLEAR' });
       dispatch({ type: 'CREATE_SUCCESS' });
-      localStorage.removeItem('cartItems');
+      sessionStorage.removeItem('cartItems');
       console.log(data)
       navigate(`/order/${data.id}`);
     } catch (err) {

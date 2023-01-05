@@ -80,7 +80,7 @@ export default function SearchScreen() {
   const price = sp.get('price') || 'all';
   const rating = sp.get('rating') || 'all';
   const order = sp.get('order') || 'newest';
-  const page = sp.get('page') || 1;
+  const page = sp.get('page') || 0;
 
   const [{ loading, error, products, pages, countProducts }, dispatch] =
     useReducer(reducer, {
@@ -119,7 +119,7 @@ export default function SearchScreen() {
   }, [dispatch]);
 
   const getFilterUrl = (filter, skipPathname) => {
-    const filterPage = filter.page || page;
+    const filterPage = filter.page || 0;
     const filterCategory = filter.category || category;
     const filterQuery = filter.query || query;
     const filterRating = filter.rating || rating;
@@ -265,15 +265,15 @@ export default function SearchScreen() {
               <div>
                 {[...Array(pages).keys()].map((x) => (
                   <LinkContainer
-                    key={x + 1}
+                    key={x}
                     className="mx-1"
                     to={{
                       pathname: '/search',
-                      search: getFilterUrl({ page: x + 1 }, true),
+                      search: getFilterUrl({ page: x }, true),
                     }}
                   >
                     <Button
-                      className={Number(page) === x + 1 ? 'text-bold' : ''}
+                      className={Number(page) === x? 'text-bold' : ''}
                       variant="light"
                     >
                       {x + 1}

@@ -34,9 +34,9 @@ function App() {
   const { cart, userInfo } = state;
   const signOutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT' });
-    localStorage.removeItem('userInfo');
-    localStorage.removeItem('shippingAddress');
-    localStorage.removeItem('paymentMethod');
+    sessionStorage.removeItem('userInfo');
+    sessionStorage.removeItem('shippingAddress');
+    sessionStorage.removeItem('paymentMethod');
     window.location.href = '/signIn';
   };
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);

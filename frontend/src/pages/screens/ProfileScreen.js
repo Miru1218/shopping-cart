@@ -61,7 +61,7 @@ export default function ProfileScreen() {
         type: 'UPDATE_SUCCESS',
       });
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
-      localStorage.setItem('userInfo', JSON.stringify(data));
+      sessionStorage.setItem('userInfo', JSON.stringify(data));
       toast.success('User updated successfully');
     } catch (err) {
       dispatch({

@@ -37,7 +37,7 @@ export default function SignInScreen() {
         toast.success('登入成功');
       }
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
-      localStorage.setItem('userInfo', JSON.stringify(data));
+      sessionStorage.setItem('userInfo', JSON.stringify(data));
       navigate(redirect || '/');
     } catch (err) {
       toast.error(getError(err));
