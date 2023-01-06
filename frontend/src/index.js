@@ -10,7 +10,6 @@ import { StoreProvider } from './Store';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <BrowserRouter>
       <StoreProvider>
         <HelmetProvider>
@@ -20,5 +19,4 @@ root.render(
         </HelmetProvider>
       </StoreProvider>
     </BrowserRouter>
-  </React.StrictMode>
 );
