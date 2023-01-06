@@ -11,6 +11,8 @@ export default function SearchBox() {
   const submitHandler = (e) => {
     e.preventDefault();
     navigate(query ? `/search/?query=${query}` : '/search');
+    document.getElementById('q').value = ''; //清空input
+
   };
 
   return (
