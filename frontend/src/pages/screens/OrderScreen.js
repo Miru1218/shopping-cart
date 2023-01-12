@@ -72,13 +72,9 @@ export default function OrderScreen() {
     return actions.order.capture().then(async function (details) {
       try {
         dispatch({ type: 'PAY_REQUEST' });
-        const { data } = await axios.put(
-          `/orders/${order.id}/pay`,
-          details,
-          {
-            headers: { authorization: `Bearer ${userInfo.token}` },
-          }
-        );
+        const { data } = await axios.put(`/order/${order.id}/pay`, details, {
+          headers: { authorization: `Bearer ${userInfo.token}` },
+        });
         dispatch({ type: 'PAY_SUCCESS', payload: data });
         toast.success('Order is paid');
       } catch (err) {
@@ -108,21 +104,24 @@ export default function OrderScreen() {
     if (!userInfo) {
       return navigate('/login');
     }
-    if (!order.id || (order.id && order.id.toString() !== orderId)) {
+    if (
+      successPay ||
+      !order.id ||
+      (order.id && order.id.toString() !== orderId)
+    ) {
       fetchOrder();
-      console.log(successPay)
       if (successPay) {
         dispatch({ type: 'PAY_RESET' });
       }
     } else {
       const loadPaypalScript = async () => {
-        const { data: clientId } = await axios.get('/keys/paypal', {
+        const { data } = await axios.get('/order/keys/paypal', {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
         paypalDispatch({
           type: 'resetOptions',
           value: {
-            'client-id': clientId,
+            'client-id': data,
             currency: 'USD',
           },
         });
@@ -166,7 +165,9 @@ export default function OrderScreen() {
                 <strong>Method:</strong> {order.paymentMethod}
               </Card.Text>
               {order.paid ? (
-                <MessageBox variant="success">Paid</MessageBox>
+                <MessageBox variant="success">
+                  Paid at {order.paidAt}
+                </MessageBox>
               ) : (
                 <MessageBox variant="danger">Not Paid</MessageBox>
               )}
@@ -232,7 +233,7 @@ export default function OrderScreen() {
                     </Col>
                   </Row>
                 </ListGroup.Item>
-                {!order.isPaid && (
+                {!order.paid && (
                   <ListGroup.Item>
                     {isPending ? (
                       <LoadingBox />
