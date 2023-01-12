@@ -1,12 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Rating from './Rating';
 import axios from 'axios';
 import { useContext } from 'react';
 import { Store } from '../../Store';
+import { toast } from 'react-toastify';
+import { getError } from '../../utils';
 
 function Product(props) {
+  const navigate = useNavigate();
+
   const { product } = props;
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -17,15 +21,28 @@ function Product(props) {
   const addToCartHandler = async (item) => {
     const existItem = cartItems.find((x) => x.id === product.id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/product/products/${item.id}`);
-    if (data.countInStock < quantity) {
-      window.alert('Sorry. Product is out of stock');
-      return;
+
+    try {
+      const { data } = await axios.get(`/product/products/${item.id}`);
+      if (data.countInStock < quantity) {
+        window.alert('Sorry. Product is out of stock');
+        return;
+      }
+      ctxDispatch({
+        type: 'CART_ADD_ITEM',
+        payload: { ...item, quantity },
+      });
+    } catch (err) {
+      console.log(err);
+      if(err.message.includes("401")){
+        toast.error("未登入");
+        navigate('/signIn');
+      }else{
+        toast.error(getError(err));
+        navigate('/signIn');
+      }
     }
-    ctxDispatch({
-      type: 'CART_ADD_ITEM',
-      payload: { ...item, quantity },
-    });
+    
   };
 
   return (
