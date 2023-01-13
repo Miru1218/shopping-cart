@@ -151,7 +151,7 @@ export default function OrderScreen() {
                 {order.shippingAddress.city}, {order.shippingAddress.postalCode}
                 ,{order.shippingAddress.country}
               </Card.Text>
-              {order.delivered ? (
+              {order.isDelivered ? (
                 <MessageBox variant="success">Delivered</MessageBox>
               ) : (
                 <MessageBox variant="danger">Not Delivered</MessageBox>
@@ -164,7 +164,7 @@ export default function OrderScreen() {
               <Card.Text>
                 <strong>Method:</strong> {order.paymentMethod}
               </Card.Text>
-              {order.paid ? (
+              {order.isPaid ? (
                 <MessageBox variant="success">
                   Paid at {order.paidAt}
                 </MessageBox>
@@ -233,7 +233,7 @@ export default function OrderScreen() {
                     </Col>
                   </Row>
                 </ListGroup.Item>
-                {!order.paid && (
+                {!order.isPaid && (
                   <ListGroup.Item>
                     {isPending ? (
                       <LoadingBox />

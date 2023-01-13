@@ -48,7 +48,7 @@ function App() {
         const { data } = await axios.get(`/product/products/categories`);
         setCategories(data);
       } catch (err) {
-        toast.error(getError(err));
+        // toast.error(getError(err));
       }
     };
     fetchCategories();
