@@ -1,5 +1,5 @@
 import { Link, Route, Routes } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import HomeScreen from './pages/screens/HomeScreen';
 import ProductScreen from './pages/screens/ProductScreen';
@@ -21,7 +21,6 @@ import OrderScreen from './pages/screens/OrderScreen';
 import OrderHistoryScreen from './pages/screens/OrderHistoryScreen';
 import ProfileScreen from './pages/screens/ProfileScreen';
 import Button from 'react-bootstrap/Button';
-import { getError } from './utils';
 import axios from 'axios';
 import SearchBox from './pages/components/SearchBox';
 import SearchScreen from './pages/screens/SearchScreen';
@@ -171,7 +170,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="/placeorder" element={<PlaceOrderScreen />} />
+            <Route path="/placeOrder" element={<PlaceOrderScreen />} />
             <Route
               path="/order/:id"
               element={
