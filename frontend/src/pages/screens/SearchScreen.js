@@ -234,7 +234,7 @@ export default function SearchScreen() {
                     ) : null}
                   </div>
                 </Col>
-                <Col className="text-end">
+                {/* <Col className="text-end">
                   Sort by
                   <select
                     value={order}
@@ -247,7 +247,7 @@ export default function SearchScreen() {
                     <option value="highest">Price: High to Low</option>
                     <option value="toprated">Avg. Customer Reviews</option>
                   </select>
-                </Col>
+                </Col> */}
               </Row>
               
               {products.length === 0 && (
@@ -262,7 +262,7 @@ export default function SearchScreen() {
                 ))}
               </Row>
 
-              <div>
+              <div className="d-flex justify-content-center align-items-center">
                 {[...Array(pages).keys()].map((x) => (
                   <LinkContainer
                     key={x}
